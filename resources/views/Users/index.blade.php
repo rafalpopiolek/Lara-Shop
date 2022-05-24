@@ -14,7 +14,6 @@
             </thead>
 
             <tbody>
-
             @foreach($users as $user)
                 <tr>
                     <th scope="row">{{ $user->id }}</th>
@@ -26,5 +25,6 @@
             @endforeach
             </tbody>
         </table>
+        {{ $users->links() }}
     </div>
 @endsection
