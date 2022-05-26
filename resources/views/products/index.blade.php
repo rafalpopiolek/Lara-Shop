@@ -67,4 +67,3 @@
 @section('js-files')
     <script src="{{ asset('js/delete.js') }}"></script>
 @endsection
-
