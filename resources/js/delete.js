@@ -1,7 +1,7 @@
 $(function () {
     $('.delete').click(function () {
         Swal.fire({
-            title: 'Czy napewno chcesz usunąć użytkownika?',
+            title: 'Czy napewno chcesz usunąć?',
             icon: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
@@ -17,7 +17,6 @@ $(function () {
                     })
                         .done(function (data) {
                             window.location.reload();
-                            Swal.fire('Sukces', 'Użytkownik usunięty poprawnie', 'success');
                         })
                         .fail(function (data) {
                             Swal.fire('Błąd', data.responseJSON.message, data.responseJSON.status);
