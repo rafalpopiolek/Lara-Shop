@@ -80,10 +80,12 @@
 
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="sweetalert2.min.js"></script>
 
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
     <script type="text/javascript">
         @yield('javascript')
     </script>
+    @yield('js-files')
 </body>
 </html>

@@ -2,6 +2,7 @@ window._ = require('lodash');
 
 try {
     require('bootstrap');
+    window.Swal = require('sweetalert2');
 } catch (e) {}
 
 /**
