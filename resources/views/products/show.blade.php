@@ -22,7 +22,8 @@
                             <label for="description" class="col-md-4 col-form-label text-md-end">Opis</label>
 
                             <div class="col-md-6">
-                                <textarea maxlength="1500" class="form-control" name="description" id="description" disabled>
+                                <textarea maxlength="1500" class="form-control" name="description" id="description"
+                                          disabled>
                                     {{ $product->description }}
                                 </textarea>
                             </div>
@@ -47,6 +48,21 @@
                                        value="{{ $product->price }}" disabled>
                             </div>
                         </div>
+
+                        <div class="row mb-3">
+                            <label for="category" class="col-md-4 col-form-label text-md-end">{{ __('shop.product.fields.category') }}</label>
+
+                            <div class="col-md-6">
+                                <select disabled id="category_id" class="form-control @error('category_id') is-invalid @enderror" name="category_id">
+                                    @if($product->hasCategory())
+                                        <option>{{ $product->category->name }}</option>
+                                    @else
+                                        <option>Brak</option>
+                                    @endif
+                                </select>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </div>
