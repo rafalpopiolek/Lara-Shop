@@ -35,7 +35,7 @@
                                     <textarea maxlength="1500"
                                               class="form-control @error('description') is-invalid @enderror"
                                               name="description" id="description"
-                                              autofocus>{{ $product->description }}</textarea>
+                                              required autofocus>{{ $product->description }}</textarea>
 
                                     @error('description')
                                     <span class="invalid-feedback" role="alert">
@@ -81,13 +81,23 @@
                                 <label for="image" class="col-md-4 col-form-label text-md-end">Zdjęcie</label>
 
                                 <div class="col-md-6">
-                                    <input id="image" type="file" class="form-control" name="image">
+                                    <input id="image" type="file"
+                                           class="form-control @error('image') is-invalid @enderror" name="image">
+
+                                    @error('image')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
                                 </div>
                             </div>
 
                             <div class="row mb-3 justify-content-center">
                                 <div class="col-md-6 justify-content-center">
-                                    <img src="{{ asset('storage/' . $product->image_path) }}" alt="Zdjęcie produktu" width="200" height="200">
+                                    @if(!is_null($product->image_path))
+                                        <img src="{{ asset('storage/' . $product->image_path) }}" alt="Zdjęcie produktu"
+                                             width="200" height="200">
+                                    @endif
                                 </div>
                             </div>
 
