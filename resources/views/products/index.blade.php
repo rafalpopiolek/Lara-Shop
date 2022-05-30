@@ -4,7 +4,7 @@
     <div class="container">
         <div class="row">
             <div class="col-6">
-                <h1 class="float-start">Lista produktów</h1>
+                <h1 class="float-start">{{ __('shop.product.index_title') }}</h1>
             </div>
             <div class="col-6">
                 <a class="float-end" href="{{ route('products.create') }}">
@@ -18,11 +18,11 @@
                 <thead>
                 <tr>
                     <th scope="col">#</th>
-                    <th scope="col">Nazwa</th>
-                    <th scope="col">Opis</th>
-                    <th scope="col">Ilość</th>
-                    <th scope="col">Cena</th>
-                    <th scope="col">Akcje</th>
+                    <th scope="col">{{ __('shop.product.fields.name') }}</th>
+                    <th scope="col">{{ __('shop.product.fields.description') }}</th>
+                    <th scope="col">{{ __('shop.product.fields.amount') }}</th>
+                    <th scope="col">{{ __('shop.product.fields.price') }}</th>
+                    <th scope="col">{{ __('shop.columns.actions') }}</th>
                 </tr>
                 </thead>
 

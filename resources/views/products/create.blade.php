@@ -5,14 +5,14 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Dodawanie produktu</div>
+                <div class="card-header">{{ __('shop.product.add_title') }}</div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('products.store') }}" enctype="multipart/form-data">
                         @csrf
 
                         <div class="row mb-3">
-                            <label for="name" class="col-md-4 col-form-label text-md-end">Nazwa</label>
+                            <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('shop.product.fields.name') }}</label>
 
                             <div class="col-md-6">
                                 <input id="name" maxlength="500" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
@@ -26,7 +26,7 @@
                         </div>
 
                         <div class="row mb-3">
-                            <label for="description" class="col-md-4 col-form-label text-md-end">Opis</label>
+                            <label for="description" class="col-md-4 col-form-label text-md-end">{{ __('shop.product.fields.description') }}</label>
 
                             <div class="col-md-6">
                                 <textarea maxlength="1500" class="form-control @error('description') is-invalid @enderror" name="description" id="description"
@@ -41,7 +41,7 @@
                         </div>
 
                         <div class="row mb-3">
-                            <label for="amount" class="col-md-4 col-form-label text-md-end">Ilość</label>
+                            <label for="amount" class="col-md-4 col-form-label text-md-end">{{ __('shop.product.fields.amount') }}</label>
 
                             <div class="col-md-6">
                                 <input id="amount" min="0" type="number" class="form-control @error('amount') is-invalid @enderror" name="amount" value="{{ old('amount') }}" required autocomplete="name" autofocus>
@@ -55,7 +55,7 @@
                         </div>
 
                         <div class="row mb-3">
-                            <label for="price" class="col-md-4 col-form-label text-md-end">Cena</label>
+                            <label for="price" class="col-md-4 col-form-label text-md-end">{{ __('shop.product.fields.price') }}</label>
 
                             <div class="col-md-6">
                                 <input step="0.01" min="0" id="price" type="number" class="form-control @error('price') is-invalid @enderror" name="price" value="{{ old('price') }}" required autocomplete="price">
@@ -69,7 +69,7 @@
                         </div>
 
                         <div class="row mb-3">
-                            <label for="image" class="col-md-4 col-form-label text-md-end">Zdjęcie</label>
+                             <label for="image" class="col-md-4 col-form-label text-md-end">{{ __('shop.product.fields.image') }}</label>
 
                             <div class="col-md-6">
                                 <input id="image" type="file" class="form-control @error('image') is-invalid @enderror" name="image">
@@ -86,7 +86,7 @@
                         <div class="row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
-                                    Dodaj
+                                    {{ __('shop.button.save') }}
                                 </button>
                             </div>
                         </div>
