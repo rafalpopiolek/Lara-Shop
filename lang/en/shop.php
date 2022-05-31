@@ -1,6 +1,11 @@
 <?php
 
 return [
+    'welcome' => [
+        'products' => 'Products',
+        'categories' => 'Categories',
+        'price' => 'Price'
+    ],
     'product' => [
         'add_title' => 'Add product',
         'edit_title' => 'Edit product: :name',

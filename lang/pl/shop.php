@@ -1,6 +1,12 @@
 <?php
 
 return [
+    'welcome' => [
+        'products' => 'Produkty',
+        'categories' => 'Kategorie',
+        'price' => 'Cena',
+        'filter' => 'Filtruj',
+    ],
     'product' => [
         'add_title' => 'Dodawanie produktu',
         'edit_title' => 'Edycja produktu: :name',
