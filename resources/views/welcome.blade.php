@@ -114,7 +114,10 @@
                 <input id="ex2" type="text" class="slider " value="50,150" data-slider-min="10" data-slider-max="200"
                        data-slider-step="5" data-slider-value="[50,150]" data-value="50,150" style="display: none;">
                 <div class="divider mt-5 mb-5 border-bottom border-secondary"></div>
-                <a href="#" class="btn btn-lg btn-block btn-primary" id="filter-button">{{ __('shop.welcome.filter') }}</a>
+                <a href="#" class="btn btn-lg btn-block btn-primary" id="filter-button">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    {{ __('shop.welcome.filter') }}
+                </a>
             </form>
 
         </div>

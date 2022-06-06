@@ -2,6 +2,15 @@
 
 @section('content')
     <div class="container">
+
+        @include('helpers.flash-messages')
+        <div class="col-6">
+            <h1 class="float-start">
+                <i class="fa-solid fa-users"></i>
+                {{ __('shop.user.index_title') }}
+            </h1>
+        </div>
+
         <table class="table table-hover">
             <thead>
             <tr>
@@ -22,7 +31,7 @@
                     <td>{{ $user->surname ?? '-' }}</td>
                     <td>
                         <button class="btn btn-danger btn-sm delete" data-id="{{ $user->id }}">
-                            X
+                            <i class="fas fa-trash-alt"></i>
                         </button>
                     </td>
                 </tr>
