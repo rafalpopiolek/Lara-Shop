@@ -12,6 +12,7 @@ return [
         'edit_title' => 'Edycja produktu: :name',
         'show_title' => 'Podgląd produktu',
         'index_title' => 'Lista produktów',
+        'add_to_cart' => 'Dodaj do koszyka',
         'status' => [
             'store' => [
                 'success' => 'Produkt dodany!'
