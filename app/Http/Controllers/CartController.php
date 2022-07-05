@@ -31,7 +31,6 @@ class CartController extends Controller
             $items[$product->id]->incrementQuantity();
         } else {
             $cartItemDto = $this->getCartItemDto($product);
-
             $items[$product->id] = $cartItemDto;
         }
 

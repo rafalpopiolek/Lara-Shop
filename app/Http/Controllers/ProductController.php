@@ -8,8 +8,11 @@ use App\Models\ProductCategory;
 use Exception;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\View\View;
 use Illuminate\Support\Facades\Session;
+use Symfony\Component\HttpFoundation\StreamedResponse;
 
 class ProductController extends Controller
 {
@@ -24,6 +27,7 @@ class ProductController extends Controller
             'products' => Product::paginate(10)
         ]);
     }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -84,8 +88,13 @@ class ProductController extends Controller
      */
     public function update(UpsertProductRequest $request, Product $product): RedirectResponse
     {
+        $oldImagePath = $product->image_path;
         $product->fill($request->validated());
+
         if ($request->hasFile('image')) {
+            if (Storage::exists($oldImagePath)) {
+                Storage::delete($oldImagePath);
+            }
             $product->image_path = $request->file('image')->store('products');
         }
         $product->save();
@@ -110,5 +119,18 @@ class ProductController extends Controller
                 'message' => 'Wystąpił błąd',
             ])->setStatusCode(500);
         }
+    }
+
+    /**
+     * @param Product $product
+     * @return RedirectResponse|StreamedResponse
+     */
+    public function downloadImage(Product $product): RedirectResponse|StreamedResponse
+    {
+        if (Storage::exists($product->image_path)) {
+            return Storage::download($product->image_path, 'test_name.jpg');
+        }
+
+        return  Redirect::back();
     }
 }
