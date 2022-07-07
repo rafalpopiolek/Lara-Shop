@@ -63,7 +63,7 @@
 
                             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                 @can('isAdmin')
-                                    <a class="dropdown-item" href="/users/list">Użytkownicy</a>
+                                    <a class="dropdown-item" href="{{ route('users.index') }}">Użytkownicy</a>
                                     <a class="dropdown-item" href="{{ route('products.index') }}">Produkty</a>
                                     <a class="dropdown-item" href="{{ route('cart.index') }}">Koszyk</a>
                                 @endcan
@@ -91,7 +91,6 @@
 
 <script src="{{ asset('js/app.js') }}"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-<script src="sweetalert2.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>

@@ -30,6 +30,12 @@
                     <td>{{ $user->name }}</td>
                     <td>{{ $user->surname ?? '-' }}</td>
                     <td>
+                        <a href="{{ route('users.edit', $user->id) }}">
+                            <button class="btn btn-success btn-sm">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                        </a>
+
                         <button class="btn btn-danger btn-sm delete" data-id="{{ $user->id }}">
                             <i class="fas fa-trash-alt"></i>
                         </button>
