@@ -26,12 +26,22 @@ class Cart
         return $this->items;
     }
 
+    /**
+     * @return float
+     */
+    public function getSum(): float
+    {
+        return $this->items->sum(function ($item) {
+           return $item->getSum();
+        });
+    }
+
     public function addItem(Product $product): Cart {
         $items = $this->items;
         $item = $items->first($this->IsProductIdSameAsCartItemProduct($product));
 
         if (!is_null($item)) {
-            $items = $items->reject($this->IsProductIdSameAsCartItemProduct($product));
+            $items = $this->removeItemFromCollection($items, $product);
 
             $newItem = $item->addQuantity($product);
         } else {
@@ -44,12 +54,32 @@ class Cart
 
     /**
      * @param Product $product
+     * @return Cart
+     */
+    public function removeItem(Product $product): Cart
+    {
+        $items = $this->removeItemFromCollection($this->items, $product);
+        return new Cart($items);
+    }
+
+    /**
+     * @param Product $product
      * @return Closure
      */
-    public function IsProductIdSameAsCartItemProduct(Product $product): Closure
+    private function IsProductIdSameAsCartItemProduct(Product $product): Closure
     {
         return function ($item) use ($product) {
             return $product->id == $item->getProductId();
         };
+    }
+
+    /**
+     * @param Collection $items
+     * @param Product $product
+     * @return Collection
+     */
+    private function removeItemFromCollection(Collection $items, Product $product): Collection
+    {
+        return $items->reject($this->IsProductIdSameAsCartItemProduct($product));
     }
 }

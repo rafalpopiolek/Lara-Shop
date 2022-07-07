@@ -73,6 +73,11 @@ class CartItem
         return $this->price * $this->quantity;
     }
 
+    public function getImage(): String
+    {
+        return !is_null($this->imagePath) ? asset("storage/" . $this->imagePath) : '';//config("shop.defaultImage");
+    }
+
     /**
      * @param Product $product
      * @return CartItem

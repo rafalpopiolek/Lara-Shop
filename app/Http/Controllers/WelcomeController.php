@@ -6,6 +6,7 @@ use App\Models\Product;
 use App\Models\ProductCategory;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
 
 class WelcomeController extends Controller
@@ -38,7 +39,8 @@ class WelcomeController extends Controller
         return view('welcome', [
             'products' => $query->paginate($paginate),
             'categories' => ProductCategory::orderBy('name', 'ASC')->get(),
-            'defaultImage' => 'https://via.placeholder.com/240x240/5fa9f8/efefef'
+            'defaultImage' => 'https://via.placeholder.com/240x240/5fa9f8/efefef',
+            'isGuest' => Auth::guest(),
         ]);
     }
 }
