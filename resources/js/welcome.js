@@ -12,6 +12,9 @@ $(function () {
 
     $('button.add-cart-button').click(function (event) {
         event.preventDefault();
+
+
+
         $.ajax({
             method: "POST",
             url: WELCOME_DATA.addToCart + $(this).data('id')

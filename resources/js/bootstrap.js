@@ -1,8 +1,17 @@
 window._ = require('lodash');
 
 try {
-    require('bootstrap');
     window.Swal = require('sweetalert2');
+
+    window.$ = window.jQuery = require('jquery');
+
+    window.$.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+
+    require('bootstrap');
 } catch (e) {}
 
 /**
