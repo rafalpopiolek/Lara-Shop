@@ -5,12 +5,6 @@ try {
 
     window.$ = window.jQuery = require('jquery');
 
-    window.$.ajaxSetup({
-        headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        }
-    });
-
     require('bootstrap');
 } catch (e) {}
 
